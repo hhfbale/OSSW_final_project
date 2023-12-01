@@ -2,23 +2,19 @@
 
 _Final project of the course 'Open Source Software', making my own machine learning algorithm._
 
+## What has been done
 
-**What has been done**
+The first problem of this task was to figure out what kind of model supported by the scikit learn package I wanted to use. After some research, I found that support vector classification (SVC) and Random Forest Classification were the most suited for my purpose. I did experimentation with both of them and found that the SVC yielded better results 'out of the box'. I then went on to fine tune the model's hyperparameters using GridSearchCV, which finds the best parameters from a set of pre-defined parameters. The performance flattened at around 92%.
 
-The first problem of this task was to figure out what kind of model supported by the scikit learn package I wanted to use. After some research, I found that support vector classification (SVC) and Random Forest Classification were the most suited for my purpose. I  did experimentation with both of them and found that the SVC yielded better results 'out of the box'. I then went on to fine tune the model's hyperparameters using GridSearchCV, which finds the best parameters from a set of pre-defined parameters. The performance flattened at around 92%.
-
-
-**The training data set**
+## The training data set
 
 The training data set is a folder contaning MRI scans of brains. The scans depicts three different categories of brain tumors; glioma, meningioma and pitiuray, and finally some scans of healthy brains. In total, this gives four different categories to train on and to classify.
 
-
-**My algorithm**
+## My algorithm
 
 Support vector classification (SVC) have good utility for classifying pictures. This is becuase it aims to find a hyperplane that best classifies different data points in a high-dimensional space. For SVCs, the hyperplane is the decision boundary and is defined as the line that maximizes the margin between the classes. The marigin is the distance between the hyperplane and the closest point from each class. These points are called support vectors. Since the feature points are in a high dimentioal space, the computation would be quite complex, especially if the decision boundaries are non-linear. This is where the kernel trick comes in. By Mercer's theorem, we can compute the dot product of the transformed feauture vectors in its higher dimentional space implicitly. Another important aspect of the SVC is the soft margins, whihch allows for missclassification where definite boundaries does not exist as a result of e.g. noise. This soft boundary is a trade off between missclassification and a wide marigin and is controlled by the parameter $C$, which you will see me modify in my model. Once the hyperplane is decided, new data points are classified by evaluationg on which side of the plane they fall.
 
-
-**Hyperparameters**
+## Hyperparameters
 
 _SVC class:_
 class sklearn.svm.SVC(C=1.0, kernel='rbf', degree=3, gamma='scale', coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape='ovr', break_ties=False, random_state=None)
